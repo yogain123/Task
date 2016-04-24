@@ -1,0 +1,1 @@
+The user can Create, Read,Update, Delete task , As there is no involvement of a database so i have used a disabled function for saving instance of the task,  like if user update or edit any card and then click save button then the function will disable that particular card which make user unable to edit furthur, unless Edit Botton is Clicked
