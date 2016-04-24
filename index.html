@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Angular JS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.6/angular-filter.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+<link rel="stylesheet" href="style.css">
+        
+</head>
+
+<title>Task</title>
+<body ng-app="myApp" ng-controller="myController"> 
+    
+<div class="container">
+<br>
+    
+ <div class="col-lg-12">
+    
+    <div class="col-lg-6">
+<h4>ALL PROJECTS</h4>
+        
+ </div>
+        
+<div class="col-lg-2">
+<span class = "glyphicon glyphicon-plus"></span><input type="button" value="Add New Status" ng-click="addTask()" class = "bg bg-success"> </div>
+        
+<div class = "col-lg-2">
+    <span class = "glyphicon glyphicon-trash"></span> <input type="button" value="Delete All Cards" ng-click="removeAllTask()" class = "bg bg-success">
+        </div>
+        
+        
+        
+</div>
+    <br><br><br><br>
+    
+    <div class="col-lg-12">
+            
+        <!-- Default View-->
+               <div class="col-lg-4">
+                
+                <table class="table table-bordered">
+                <tr>
+                     <th><h3>Assigned Tasks   <button type="button" onclick="myFunction()" class="glyphicon glyphicon-wrench topbar dropbtn"></button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <li><input type="button" ng-click="add()" style="font-face: 'Comic Sans MS'; font-size: medium; color: teal; background-color: #FFFFC0; border: 3pt ridge lightgrey" value="Add a Card! " > </li>
+                                <li><input type="button" ng-click="removeRowAll()" style="font-face: 'Comic Sans MS'; font-size: medium; color: teal; background-color: #FFFFC0; border: 3pt ridge lightgrey" value="Delete All Card! "></li>
+                               
+                            </div>
+                            </h3></th>
+               </tr>
+                    
+                  <tr>
+                        <td>
+                            <div ng-repeat="item in items">
+                            <textarea id="edit"  rows="4" cols="50" placeholder="Add Tasks" ng-model="name" data-ng-disabled="indexxx"></textarea>
+                        
+                            <div class="col-lg-12 bg bg-success">
+                                <div class="col-lg-4">
+                                     
+                            <button type="button" class="bg bg-success" ng-click="removeRow(item.name)"><span class="glyphicon glyphicon-trash"></span></button>
+                                </div>
+                                <div class="col-lg-4">
+                            <button type="button" class="bg bg-success" ng-click="edit(item.name)"><span class="glyphicon glyphicon-edit"></span></button>
+                                </div>
+                                <div class="col-lg-4">
+                                     
+                            <button type="button" class="bg bg-success" ng-click="save(item.name)"><span class="glyphicon glyphicon-saved"></span></button>
+                                </div>
+                            </div>
+                    </div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                       
+                        <td>
+                        
+                        <input type="button" ng-click="add()" value="Add a Card" class="bg bg-success button" >
+                       <!-- <input type="button" ng-click="edit()"  class="bg bg-primary button" > -->
+
+                        </td>
+                    
+                    </tr>
+                </table>
+            </div>
+            
+            
+            
+            <div class="col-lg-4">
+                
+                <table class="table table-bordered">
+                <tr>
+                    
+                   <th><h3>Completed Task   <button type="button" onClick ="myFunction2()" class="glyphicon glyphicon-wrench topbar dropbtn"></button>
+                            <div id="myDropdown2" class="dropdown-content">
+                                <li><input type="button" ng-click="add2()" style="font-face: 'Comic Sans MS'; font-size: medium; color: teal; background-color: #FFFFC0; border: 3pt ridge lightgrey" value="Add a Card! " > </li>
+                                <li><input type="button" ng-click="removeRowAll2()" style="font-face: 'Comic Sans MS'; font-size: medium; color: teal; background-color: #FFFFC0; border: 3pt ridge lightgrey" value="Delete All Card! "></li>
+                               
+                            </div>
+                            </h3></th>
+                </tr>
+                    
+                    <tr>
+                        <td>
+                            <div ng-repeat="item2 in items2">
+                            <textarea id="edit"  rows="4" cols="50" placeholder="Add Tasks" ng-model="name2" data-ng-disabled="indexxx"></textarea>
+                        
+                            <div class="col-lg-12 bg bg-success">
+                                <div class="col-lg-4">
+                                     
+                            <button type="button" class="bg bg-success" ng-click="removeRow2(item2.name2)"><span class="glyphicon glyphicon-trash"></span></button>
+                                </div>
+                                <div class="col-lg-4">
+                            <button type="button" class="bg bg-success" ng-click="edit2(item2.name2)"><span class="glyphicon glyphicon-edit"></span></button>
+                                </div>
+                                <div class="col-lg-4">
+                                     
+                            <button type="button" class="bg bg-success" ng-click="save2(item2.name2)"><span class="glyphicon glyphicon-saved"></span></button>
+                                </div>
+                            </div>
+                    </div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                       
+                        <td>
+                        
+                        <input type="button" ng-click="add2()" value="Add a Card" class="bg bg-success button" >
+                       <!-- <input type="button" ng-click="edit()"  class="bg bg-primary button" > -->
+
+                        </td>
+                     </tr>
+                </table>
+            </div>
+            
+            
+            
+            <div class="col-lg-4">
+                
+                <table class="table table-bordered">
+                <tr>
+                    
+                    
+                    <th><h3>Pending Tasks   <button type="button" onClick ="myFunction3()"  class="glyphicon glyphicon-wrench topbar dropbtn"></button>
+                            <div id="myDropdown3" class="dropdown-content">
+                                <li><input type="button" ng-click="add3()" style="font-face: 'Comic Sans MS'; font-size: medium; color: teal; background-color: #FFFFC0; border: 3pt ridge lightgrey" value="Add a Card! " > </li>
+                                <li><input type="button" ng-click="removeRowAll3()" style="font-face: 'Comic Sans MS'; font-size: medium; color: teal; background-color: #FFFFC0; border: 3pt ridge lightgrey" value="Delete All Card! "></li>
+                               
+                            </div>
+                            </h3></th>
+                    
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <div ng-repeat="item3 in items3">
+                            <textarea id="edit"  rows="4" cols="50" placeholder="Add Tasks" ng-model="name3" data-ng-disabled="indexxx"></textarea>
+                        
+                            <div class="col-lg-12 bg bg-success">
+                                <div class="col-lg-4">
+                                     
+                            <button type="button" class="bg bg-success" ng-click="removeRow3(item3.name3)"><span class="glyphicon glyphicon-trash"></span></button>
+                                </div>
+                                <div class="col-lg-4">
+                            <button type="button" class="bg bg-success" ng-click="edit3(item3.name3)"><span class="glyphicon glyphicon-edit"></span></button>
+                                </div>
+                                <div class="col-lg-4">
+                                     
+                            <button type="button" class="bg bg-success" ng-click="save3(item3.name3)"><span class="glyphicon glyphicon-saved"></span></button>
+                                </div>
+                            </div>
+                    </div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                       
+                        <td>
+                        
+                        <input type="button" ng-click="add3()" value="Add a Card" class="bg bg-success button" >
+                       <!-- <input type="button" ng-click="edit()"  class="bg bg-primary button" > -->
+
+                        </td>
+                    
+                    </tr>
+                </table>
+            </div>
+            
+            
+             <!-- Default View  -->
+            
+            
+            <div class = "col-lg-12">
+            
+            
+            
+          <div ng-repeat = "task in tasks">
+    
+            <div class="col-lg-4">
+                
+                <table class="table table-bordered">
+                <tr>
+                    
+                    
+                    <th><h3>{{taskName}}  <button type="button" onclick="myFunction_repeating()" class="glyphicon glyphicon-wrench topbar dropbtn"></button>
+                            <div id="myDropdownRepeating" class="dropdown-content">
+                                <li><input type="button" ng-click="add_repeating()" style="font-face: 'Comic Sans MS'; font-size: medium; color: teal; background-color: #FFFFC0; border: 3pt ridge lightgrey" value="Add a Card! " > </li>
+                                <li><input type="button" ng-click="removeRowAll_repeating()" style="font-face: 'Comic Sans MS'; font-size: medium; color: teal; background-color: #FFFFC0; border: 3pt ridge lightgrey" value="Delete All Card! "></li>
+                               
+                            </div>
+                            </h3></th>
+                    
+                    </tr>
+                    
+                     <tr>
+                        <td>
+                            <div ng-repeat="item_repeating in items_repeating">
+                            <textarea id="edit"  rows="4" cols="50" placeholder="Add Tasks" ng-model="name_repeating" data-ng-disabled="indexxx"></textarea>
+                        
+                            <div class="col-lg-12 bg bg-success">
+                                <div class="col-lg-4">
+                                     
+                            <button type="button" class="bg bg-success" ng-click="removeRow_repeating(item_repeating.name_repeating)"><span class="glyphicon glyphicon-trash"></span></button>
+                                </div>
+                                <div class="col-lg-4">
+                            <button type="button" class="bg bg-success" ng-click="edit_repeating(item_repeating.name_repeating)"><span class="glyphicon glyphicon-edit"></span></button>
+                                </div>
+                                <div class="col-lg-4">
+                                     
+                            <button type="button" class="bg bg-success" ng-click="save_repeating(item_repeating.name_repeating)"><span class="glyphicon glyphicon-saved"></span></button>
+                                </div>
+                            </div>
+                    </div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                       
+                        <td>
+                        
+                        <input type="button" ng-click="add_repeating()" value="Add a Card" class="bg bg-success button" >
+                       <!-- <input type="button" ng-click="edit()"  class="bg bg-primary button" > -->
+
+                        </td>
+                    
+                    
+                    </tr>
+                </table>
+            </div>
+              
+            </div>
+               
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+
+
+    </body>
+
+</html>
